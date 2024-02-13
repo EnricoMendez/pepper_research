@@ -1,0 +1,3 @@
+[console_scripts]
+data_adquisition = size_estimation.data_adquisition:main
+
