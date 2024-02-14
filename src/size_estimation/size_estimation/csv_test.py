@@ -3,6 +3,29 @@
 # Description: Csv manager test
 
 import csv
+import os
+from ament_index_python.packages import get_package_share_directory
+
+pkg_path = get_package_share_directory('size_estimation')
+print(pkg_path)
+path = os.path.dirname(pkg_path)
+print("Package source directory:", path)
+parts = pkg_path.split('/')
+print(parts)
+
+replace = 'install'
+idx = parts.index(replace)
+parts[idx] = 'src'
+
+# replace = 'share'
+# idx = parts.index(replace)
+# parts[idx] = ''
+parts.remove('share')
+
+print(parts)
+
+parts = '/'.join(parts)
+print(parts)
 
 file_name = 'test.csv'
 
@@ -24,9 +47,10 @@ def create_csv(file_name):
 
         writer.writerow(header)
 
-try: 
-    reader_csv(file_name)
-    print('File successfully read')
-except: 
-    create_csv(file_name)
-    print('File couldn\'t be read, a new file {} was created'.format(file_name))
+def main():
+    try: 
+        reader_csv(file_name)
+        print('File successfully read')
+    except: 
+        create_csv(file_name)
+        print('File couldn\'t be read, a new file {} was created'.format(file_name))
