@@ -10,6 +10,7 @@ from cv_bridge import CvBridge
 import numpy as np
 import time
 
+
 class DataAdquisition(Node):
     def __init__(self):
         super().__init__('Image_capture')
