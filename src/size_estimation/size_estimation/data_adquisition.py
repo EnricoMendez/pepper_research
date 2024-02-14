@@ -13,6 +13,9 @@ import time
 from ament_index_python.packages import get_package_share_directory
 
 
+from ament_index_python.packages import get_package_share_directory
+
+# Puede generar una excepción PackageNotFoundError si no encuentra el paquete
 
 class DataAdquisition(Node):
     def __init__(self):
@@ -24,8 +27,7 @@ class DataAdquisition(Node):
         self.img_msg = np.array((720, 1280, 3))
         
         # Define constants
-        package_share_directory = get_package_share_directory('size_estimation')
-        self.get_logger().info("Directory found: {}".format(package_share_directory))
+        package_share_directory = get_package_share_directory('nombre_del_paquete')
         self.bridge = CvBridge()
         self.timer_period = 0.5
         self.timer = self.create_timer(self.timer_period, self.image_processing)
