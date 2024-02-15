@@ -16,41 +16,47 @@ print(parts)
 replace = 'install'
 idx = parts.index(replace)
 parts[idx] = 'src'
-
-# replace = 'share'
-# idx = parts.index(replace)
-# parts[idx] = ''
 parts.remove('share')
 
 print(parts)
 
 parts = '/'.join(parts)
 print(parts)
+os.system('cd {}'.format(parts))
 
 file_name = 'test.csv'
 
-header = ['Nombre', 'Edad', 'Ciudad']
+header = ['id', 'Nombre', 'Edad', 'Ciudad']
 content = [
-    ['Ana', 25, 'Querétaro'],
-    ['Carlos', 30, 'Ciudad de México']
+    [1, 'Ana', 25, 'Querétaro'],
+    [2, 'Carlos', 30, 'Ciudad de México'],
+    [3, 'Ana', 25, 'Querétaro'],
+    [4, 'Ana', 25, 'Querétaro']
 ]
 
 def reader_csv(file_name):
-    with open (file_name, 'r') as my_file:
-        writer = csv.writer(my_file)
-
-        writer.writerow(content[0])
+    with open (file_name, 'r+') as my_file:
+        text_read = csv.reader(my_file)
+        data = list(text_read)
+    return data
 
 def create_csv(file_name):
     with open (file_name, 'x') as my_file :
         writer = csv.writer(my_file)
 
         writer.writerow(header)
+        for line in content:
+            writer.writerow(line)
 
 def main():
+    print('going for main')
     try: 
-        reader_csv(file_name)
+        content = reader_csv(file_name)
         print('File successfully read')
+        print('Content found: \n {}'.format(content[-1][0]))
     except: 
+        print('Try fail going for exception')
         create_csv(file_name)
         print('File couldn\'t be read, a new file {} was created'.format(file_name))
+
+main()
