@@ -5,33 +5,30 @@
 import csv
 import os
 from ament_index_python.packages import get_package_share_directory
-def get_pkg_path(pkg_name='size_estimation'):
-    # Get exc path
-    pkg_path = get_package_share_directory(pkg_name)
 
-    # Converting to list
-    parts = pkg_path.split('/')
+pkg_path = get_package_share_directory('size_estimation')
+print(pkg_path)
+path = os.path.dirname(pkg_path)
+print("Package source directory:", path)
+parts = pkg_path.split('/')
+print(parts)
 
-    # Directing to the src folder
-    replace = 'install'
-    idx = parts.index(replace)
-    parts[idx] = 'src'
-    parts.remove('share')
+replace = 'install'
+idx = parts.index(replace)
+parts[idx] = 'src'
+parts.remove('share')
 
-    # Converting back to string
-    path = '/'.join(parts)
+print(parts)
 
-    return path
-
-parts = get_pkg_path()
+parts = '/'.join(parts)
+print(parts)
+os.system('cd {}'.format(parts))
 
 file_name = '/test.csv'
 
 full_file_name = parts+file_name
 
-header = ['Id',' Original image path', 'Processed image path', 
-          'Area in image (px2)',' Area in image (cm2)',
-            'Weight (g)', 'Time stamp']
+header = ['Id',' Original image path', 'Processed image path', 'Area in image (px2)',' Area in image (cm2)', 'Weight (g)', 'Time stamp']
 content = [
     [1, 'Ana', 25, 'Querétaro'],
     [2, 'Carlos', 30, 'Ciudad de México'],
@@ -60,14 +57,6 @@ def create_csv(file_name):
         for line in content:
             writer.writerow(line)
 
-def check_id(file_name):
-    try:
-        content = reader_csv(file_name)
-        id = int(content[-1][0]) + 1
-    except:
-        create_csv(file_name)
-        id = 1
-
 def main():
     print('going for main')
     try: 
@@ -83,5 +72,4 @@ def main():
         create_csv(full_file_name)
         print('File couldn\'t be read, a new file {} was created'.format(full_file_name))
 
-if __name__ == '__main__':
-    main()
+main()
