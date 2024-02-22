@@ -44,10 +44,14 @@ class ImageServer(Node):
         self.valid_depth = True   
 
     def image_process(self, request, response):
-        if not self.valid_img & self.valid_depth: return
+        while not self.valid_img & self.valid_depth: 
+            response.data = 'Image is not avilable' 
+            return response
+        self.get_logger().info("Message recived")
         id = request.id
         segmented_img = self.segmentation(self.org_img)
         distance = self.distance_calc(segmented_img)
+        response.data = 'The id is {}'.format(id)
         return response
     def segmentation(self,src):
         return 
