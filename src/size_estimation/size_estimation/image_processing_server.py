@@ -20,26 +20,32 @@ class ImageServer(Node):
         # Create variables
         self.org_img = np.array((720, 1280, 3))
         self.valid_img = False
+        self.valid_depth = False 
         
         # Define constants
         self.bridge = CvBridge()
 
         # Create suscriber 
-        self.oak_sub = self.create_subscription(Image,'/oak/rgb/image_raw', self.oak_callback, 10)
-        self.depth_sub = self.create_subscription(Image,'/oak/', self.depth_callback, 10)
-        
+        self.camera_sub = self.create_subscription(Image,'camera/camera/color/image_raw', self.cam_callback, 10)
+        self.depth_sub = self.create_subscription(Image,'/camera/camera/aligned_depth_to_color/image_raw', self.depth_callback, 10)
         # Create server
         self.srv = self.create_service(ImageProcessing, 'image_processing_service', self.image_process)
         
-    def oak_callback(self,msg):
-        self.org_img = self.bridge.imgmsg_to_cv2(msg,desired_encoding="bgr8")
-        print(self.org_img.shape)
+    def cam_callback(self,msg):
+        self.org_img = self.bridge.imgmsg_to_cv2(msg)
         self.get_logger().info("Image recieved")
         self.capture_time = time.localtime(time.time())
         self.valid_img = True
 
+    def depth_callback(self, msg):
+        self.org_img = self.bridge.imgmsg_to_cv2(msg)
+        self.get_logger().info("Image recieved")
+        self.depth_capture_time = time.localtime(time.time())
+        self.valid_depth = True   
+
     def image_process(self, request, response):
-        if not self.valid_img: return
+        if not self.valid_img & self.valid_depth: return
+        id = request.id
         segmented_img = self.segmentation(self.org_img)
         distance = self.distance_calc(segmented_img)
         return response

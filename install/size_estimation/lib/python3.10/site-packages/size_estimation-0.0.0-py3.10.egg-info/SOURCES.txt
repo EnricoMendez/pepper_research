@@ -12,6 +12,7 @@ setup.py
 resource/size_estimation
 size_estimation/__init__.py
 size_estimation/data_adquisition.py
+size_estimation/image_processing_server.py
 test/test_copyright.py
 test/test_flake8.py
 test/test_pep257.py
