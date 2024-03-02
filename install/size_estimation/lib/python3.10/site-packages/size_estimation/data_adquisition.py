@@ -30,6 +30,7 @@ class DataAdquisition(Node):
         self.id = self.check_id(self.full_file_name)
 
         # Create client
+        
 
     def reader_csv(self, file_name):
 
@@ -81,14 +82,6 @@ class DataAdquisition(Node):
         path = '/'.join(parts)
 
         return path
-
-
-        try:
-            self.org_img = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-            self.capture_time = time.localtime(time.time())
-            self.valid_msg = True
-        except:
-            self.get_logger().info("Failed to recieved image")
     
     def data_register(self):
         self.get_logger().info("Ready for capture")

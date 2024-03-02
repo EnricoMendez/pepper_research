@@ -19,6 +19,7 @@ class ImageServer(Node):
 
         # Create variables
         self.org_img = np.array((720, 1280, 3))
+        # self.depth_map = np.array((720, 1280, 1))
         self.valid_img = False
         self.valid_depth = False 
         
@@ -27,21 +28,27 @@ class ImageServer(Node):
 
         # Create suscriber 
         self.camera_sub = self.create_subscription(Image,'camera/camera/color/image_raw', self.cam_callback, 10)
-        self.depth_sub = self.create_subscription(Image,'/camera/camera/aligned_depth_to_color/image_raw', self.depth_callback, 10)
+        self.depth_sub = self.create_subscription(Image,'/camera/camera/depth/image_rect_raw', self.depth_callback, 10)
         # Create server
         self.srv = self.create_service(ImageProcessing, 'image_processing_service', self.image_process)
+
+        # For debuggin
+        self.image_deb_pub = self.create_publisher(Image,'Image/debug',10)
+        self.image_deb_msg = Image()
         
     def cam_callback(self,msg):
+        if not self.valid_img:
+            self.get_logger().info("Image recieved")
+            self.valid_img = True
         self.org_img = self.bridge.imgmsg_to_cv2(msg)
-        self.get_logger().info("Image recieved")
         self.capture_time = time.localtime(time.time())
-        self.valid_img = True
 
     def depth_callback(self, msg):
-        self.org_img = self.bridge.imgmsg_to_cv2(msg)
-        self.get_logger().info("Image recieved")
+        if not self.valid_depth:
+            self.get_logger().info("Depth image recieved")
+            self.valid_depth = True   
+        self.depth_map = self.bridge.imgmsg_to_cv2(msg)
         self.depth_capture_time = time.localtime(time.time())
-        self.valid_depth = True   
 
     def image_process(self, request, response):
         while not self.valid_img & self.valid_depth: 
@@ -54,7 +61,29 @@ class ImageServer(Node):
         response.data = 'The id is {}'.format(id)
         return response
     def segmentation(self,src):
-        return 
+        gray_img = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
+        _, otsu = cv2.threshold(gray_img, 0,255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+        inverted_otsu = cv2.bitwise_not(otsu)
+        mask = self.biggest_blob_selection(inverted_otsu)
+        self.image_deb_msg = self.bridge.cv2_to_imgmsg(mask*255)
+        self.image_deb_pub.publish(self.image_deb_msg)
+        return otsu
+    def biggest_blob_selection(self, src):
+        contours,hierarchy = cv2.findContours(src, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+        maxContour = 0
+        # Check for the biggest blob
+        for contour in contours:
+            
+            contourSize = cv2.contourArea(contour)
+            if contourSize > maxContour:
+                maxContour = contourSize
+                maxContourData = contour
+
+        # Create a mask from the largest contour
+        mask = np.zeros_like(src)
+        mask = mask.astype('uint8')
+        mask=cv2.fillPoly(mask,[maxContourData],1)
+        return mask
     def distance_calc(self,src):
         pass
 
