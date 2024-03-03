@@ -1,8 +1,8 @@
-# Install script for directory: /home/enrico/research/pepper_research/build/interfaces/interfaces__py
+# Install script for directory: /home/enrico/pepper_research/build/interfaces/interfaces__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/enrico/research/pepper_research/install/interfaces")
+  set(CMAKE_INSTALL_PREFIX "/home/enrico/pepper_research/install/interfaces")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

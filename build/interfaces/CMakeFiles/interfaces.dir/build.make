@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/enrico/research/pepper_research/src/interfaces
+CMAKE_SOURCE_DIR = /home/enrico/pepper_research/src/interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/enrico/research/pepper_research/build/interfaces
+CMAKE_BINARY_DIR = /home/enrico/pepper_research/build/interfaces
 
 # Utility rule file for interfaces.
 
@@ -66,7 +66,7 @@ include CMakeFiles/interfaces.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/interfaces.dir/progress.make
 
-CMakeFiles/interfaces: /home/enrico/research/pepper_research/src/interfaces/srv/ImageProcessing.srv
+CMakeFiles/interfaces: /home/enrico/pepper_research/src/interfaces/srv/ImageProcessing.srv
 CMakeFiles/interfaces: rosidl_cmake/srv/ImageProcessing_Request.msg
 CMakeFiles/interfaces: rosidl_cmake/srv/ImageProcessing_Response.msg
 
@@ -83,6 +83,6 @@ CMakeFiles/interfaces.dir/clean:
 .PHONY : CMakeFiles/interfaces.dir/clean
 
 CMakeFiles/interfaces.dir/depend:
-	cd /home/enrico/research/pepper_research/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/enrico/research/pepper_research/src/interfaces /home/enrico/research/pepper_research/src/interfaces /home/enrico/research/pepper_research/build/interfaces /home/enrico/research/pepper_research/build/interfaces /home/enrico/research/pepper_research/build/interfaces/CMakeFiles/interfaces.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/enrico/pepper_research/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/enrico/pepper_research/src/interfaces /home/enrico/pepper_research/src/interfaces /home/enrico/pepper_research/build/interfaces /home/enrico/pepper_research/build/interfaces /home/enrico/pepper_research/build/interfaces/CMakeFiles/interfaces.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/interfaces.dir/depend
 

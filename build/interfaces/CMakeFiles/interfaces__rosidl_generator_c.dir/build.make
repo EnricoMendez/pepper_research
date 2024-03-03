@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/enrico/research/pepper_research/src/interfaces
+CMAKE_SOURCE_DIR = /home/enrico/pepper_research/src/interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/enrico/research/pepper_research/build/interfaces
+CMAKE_BINARY_DIR = /home/enrico/pepper_research/build/interfaces
 
 # Include any dependencies generated for this target.
 include CMakeFiles/interfaces__rosidl_generator_c.dir/depend.make
@@ -83,8 +83,8 @@ rosidl_generator_c/interfaces/srv/image_processing.h: /opt/ros/humble/share/rosi
 rosidl_generator_c/interfaces/srv/image_processing.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__type_support.h.em
 rosidl_generator_c/interfaces/srv/image_processing.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
 rosidl_generator_c/interfaces/srv/image_processing.h: rosidl_adapter/interfaces/srv/ImageProcessing.idl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/enrico/research/pepper_research/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
-	/usr/bin/python3.10 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/enrico/research/pepper_research/build/interfaces/rosidl_generator_c__arguments.json
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/enrico/pepper_research/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
+	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/enrico/pepper_research/build/interfaces/rosidl_generator_c__arguments.json
 
 rosidl_generator_c/interfaces/srv/detail/image_processing__functions.h: rosidl_generator_c/interfaces/srv/image_processing.h
 	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/interfaces/srv/detail/image_processing__functions.h
@@ -101,16 +101,16 @@ rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c: rosidl_g
 CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o: CMakeFiles/interfaces__rosidl_generator_c.dir/flags.make
 CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o: rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c
 CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o: CMakeFiles/interfaces__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/enrico/research/pepper_research/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o -MF CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o.d -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o -c /home/enrico/research/pepper_research/build/interfaces/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/enrico/pepper_research/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o -MF CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o.d -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.o -c /home/enrico/pepper_research/build/interfaces/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c
 
 CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/enrico/research/pepper_research/build/interfaces/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c > CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/enrico/pepper_research/build/interfaces/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c > CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.i
 
 CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/enrico/research/pepper_research/build/interfaces/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/enrico/pepper_research/build/interfaces/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c -o CMakeFiles/interfaces__rosidl_generator_c.dir/rosidl_generator_c/interfaces/srv/detail/image_processing__functions.c.s
 
 # Object files for target interfaces__rosidl_generator_c
 interfaces__rosidl_generator_c_OBJECTS = \
@@ -124,7 +124,7 @@ libinterfaces__rosidl_generator_c.so: CMakeFiles/interfaces__rosidl_generator_c.
 libinterfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libinterfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libinterfaces__rosidl_generator_c.so: CMakeFiles/interfaces__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/enrico/research/pepper_research/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libinterfaces__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/enrico/pepper_research/build/interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libinterfaces__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/interfaces__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -140,6 +140,6 @@ CMakeFiles/interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/interfa
 CMakeFiles/interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/interfaces/srv/detail/image_processing__struct.h
 CMakeFiles/interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/interfaces/srv/detail/image_processing__type_support.h
 CMakeFiles/interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/interfaces/srv/image_processing.h
-	cd /home/enrico/research/pepper_research/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/enrico/research/pepper_research/src/interfaces /home/enrico/research/pepper_research/src/interfaces /home/enrico/research/pepper_research/build/interfaces /home/enrico/research/pepper_research/build/interfaces /home/enrico/research/pepper_research/build/interfaces/CMakeFiles/interfaces__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/enrico/pepper_research/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/enrico/pepper_research/src/interfaces /home/enrico/pepper_research/src/interfaces /home/enrico/pepper_research/build/interfaces /home/enrico/pepper_research/build/interfaces /home/enrico/pepper_research/build/interfaces/CMakeFiles/interfaces__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/interfaces__rosidl_generator_c.dir/depend
 

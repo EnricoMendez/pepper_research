@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/enrico/research/pepper_research/src/interfaces
+CMAKE_SOURCE_DIR = /home/enrico/pepper_research/src/interfaces
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/enrico/research/pepper_research/build/interfaces
+CMAKE_BINARY_DIR = /home/enrico/pepper_research/build/interfaces
 
 # Utility rule file for interfaces_uninstall.
 
@@ -67,7 +67,7 @@ include CMakeFiles/interfaces_uninstall.dir/compiler_depend.make
 include CMakeFiles/interfaces_uninstall.dir/progress.make
 
 CMakeFiles/interfaces_uninstall:
-	/usr/bin/cmake -P /home/enrico/research/pepper_research/build/interfaces/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
+	/usr/bin/cmake -P /home/enrico/pepper_research/build/interfaces/ament_cmake_uninstall_target/ament_cmake_uninstall_target.cmake
 
 interfaces_uninstall: CMakeFiles/interfaces_uninstall
 interfaces_uninstall: CMakeFiles/interfaces_uninstall.dir/build.make
@@ -82,6 +82,6 @@ CMakeFiles/interfaces_uninstall.dir/clean:
 .PHONY : CMakeFiles/interfaces_uninstall.dir/clean
 
 CMakeFiles/interfaces_uninstall.dir/depend:
-	cd /home/enrico/research/pepper_research/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/enrico/research/pepper_research/src/interfaces /home/enrico/research/pepper_research/src/interfaces /home/enrico/research/pepper_research/build/interfaces /home/enrico/research/pepper_research/build/interfaces /home/enrico/research/pepper_research/build/interfaces/CMakeFiles/interfaces_uninstall.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/enrico/pepper_research/build/interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/enrico/pepper_research/src/interfaces /home/enrico/pepper_research/src/interfaces /home/enrico/pepper_research/build/interfaces /home/enrico/pepper_research/build/interfaces /home/enrico/pepper_research/build/interfaces/CMakeFiles/interfaces_uninstall.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/interfaces_uninstall.dir/depend
 
